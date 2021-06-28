@@ -9,16 +9,6 @@ const generateMarkdown = require('./utils/generateMarkdown');
 const questions = [
     {
         type: "input",
-        name: "Github",
-        question: "What is your username?",
-    },
-    {
-        type: "input",
-        name: "email address",
-        question: "What is your email address?",
-    },
-    {
-        type: "input",
         name: "Project name",
         question: "What is the name of your project?",
     },
@@ -26,6 +16,12 @@ const questions = [
         type: "input",
         name: "about",
         question: "Give a brief synopsis of your project",
+    },
+    {
+        type:"list",
+        name: "license",
+        question: "What type of license does your prject have?",
+        options: ["none", "APACHE 2.0", "MIT", "BSD 3", "GPL 3.0"],
     },
     {
         type: "input",
@@ -52,6 +48,16 @@ const questions = [
         name: "contribute",
         question: "What does someone need to know about contributing to this project?",
     },
+    {
+        type: "input",
+        name: "Github",
+        question: "What is your username?",
+    },
+    {
+        type: "input",
+        name: "email address",
+        question: "What is your email address?",
+    },
 ];
 
 // TODO: Create a function to write README file
@@ -63,7 +69,7 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions).then((inquirerResponses)=> {
         console.log("Creating ReadME");
-        writeToFile("")
+        writeToFile("READMEmd", generateMarkdown({...inquirerResponses}))
     })
 }
 
