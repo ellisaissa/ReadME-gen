@@ -19,8 +19,8 @@ const questions = [
     {
         type:"list",
         name: "license",
-        question: "What type of license does your prject have?",
-        options: ["none", "APACHE 2.0", "MIT", "BSD 3", "GPL 3.0"],
+        question: "What type of license does your project have?",
+        options: ["none", "APACHE", "MOZILLA", "MIT", "ISC"],
     },
     {
         type: "input",
@@ -40,7 +40,7 @@ const questions = [
     {
         type: "input",
         name: "use",
-        question: "What does someone need to know about using this project?",
+        question: "What is this project used for?",
     },
     {
         type: "input",
