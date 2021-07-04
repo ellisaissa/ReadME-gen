@@ -8,7 +8,7 @@ const generateMarkdown = require('./utils/generateMarkdown');
 const questions = [
     {
         type: "input",
-        name: "Project name",
+        name: "title",
         question: "What is the name of your project?",
     },
     {
@@ -20,7 +20,7 @@ const questions = [
         type:"list",
         name: "license",
         question: "What type of license does your project have?",
-        options: ["none", "APACHE", "MOZILLA", "MIT", "ISC"],
+        choices: ["none", "APACHE", "MOZILLA", "MIT", "ISC"],
     },
     {
         type: "input",
@@ -67,7 +67,7 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions).then((inquirerResponses)=> {
         console.log("Creating ReadME");
-        writeToFile("READMEmd", generateMarkdown({...inquirerResponses}))
+        writeToFile("README.md", generateMarkdown({...inquirerResponses}))
     })
 }
 
